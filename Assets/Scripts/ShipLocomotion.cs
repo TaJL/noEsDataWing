@@ -23,6 +23,12 @@ public class ShipLocomotion : MonoBehaviour
     }
     private Vector2 _deltaVelocity = new Vector2();
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, transform.position + (Vector3)_velocity);
+    }
+
     private void Awake()
     {
         _settings = Settings.Instance.Ship;
@@ -48,7 +54,20 @@ public class ShipLocomotion : MonoBehaviour
 
     void UpdateGame()
     {
-        _velocity = Vector2.up * _settings.BaseSpeed;
+        if (_velocity == Vector2.zero)
+        {
+            _velocity = Vector2.up * _settings.BaseSpeed;
+        }
+
+        Vector2 direction = ControlManager.Instance.GetDirection();
+        if (direction.x == 0)
+        {
+            return;
+        }
+        float angle = Vector2.SignedAngle(Vector2.right, _velocity);
+        angle -= Time.deltaTime * _settings.TurnSpeed * direction.x;
+        transform.rotation = Quaternion.Euler(0,0,angle - 90);
+        _velocity =  _settings.BaseSpeed * new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
     }
 
     private void FixedUpdate()

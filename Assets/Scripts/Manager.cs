@@ -12,7 +12,7 @@ public class Manager : MonoBehaviour
     
     [Header("DEBUG")]
     [SerializeField] private EGameState _gameState = EGameState.STAND_BY;
-    
+
     private static Manager _instance = null;
     private ShipLocomotion _ship = null;
 
@@ -27,6 +27,28 @@ public class Manager : MonoBehaviour
 
         _ship = Instantiate<ShipLocomotion>(_shipPrefab);
         IsNull(_ship);
+    }
+
+    private void OnEnable()
+    {
+        ControlManager.OnActionPressedEvent += ActionPressed;
+    }
+
+    private void OnDisable()
+    {
+        ControlManager.OnActionPressedEvent += ActionPressed;
+    }
+
+    private void ActionPressed()
+    {
+        switch (_gameState)
+        {
+            case EGameState.STAND_BY:
+            {
+                _gameState = EGameState.GAME;
+                break;
+            }
+        }
     }
 
     public static bool IsNull(object objectToCheck)

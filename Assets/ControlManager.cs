@@ -6,7 +6,10 @@ using UnityEngine.InputSystem;
 
 public class ControlManager : MonoBehaviour
 {
-    private Action OnActionPressedEvent;
+    public static ControlManager Instance => _instance;
+    public static Action OnActionPressedEvent;
+
+    private static ControlManager _instance = null;
 
     private PlayerInput _playerInput = null;
 
@@ -18,6 +21,12 @@ public class ControlManager : MonoBehaviour
 
     private void Awake()
     {
+        if (_instance != null)
+        {
+            return;
+        }
+        _instance = this;
+
         _playerInput = GetComponent<PlayerInput>();
         Controls gameInputs = new Controls();
         _playerInput.currentActionMap = gameInputs.Game;
