@@ -46,12 +46,25 @@ public class EnemySpawner : MonoBehaviour
         }
         
     }
-    //s
-    private void Start()
+
+    private void OnEnable()
     {
-        StartCoroutine("Spawn");
+        Manager.OnGameStateChangedEvent+=Spawning;
+    }
+    
+    private void OnDisable()
+    {
+        Manager.OnGameStateChangedEvent-=Spawning;
     }
 
+    void Spawning(EGameState other){
+        if(other==EGameState.GAME){
+            StartCoroutine("Spawn");
+        }else if(other==EGameState.GAME_OVER){
+            StopCoroutine("Spawn");
+        }
+        
+    }
     IEnumerator Spawn(){
 
         float xr;

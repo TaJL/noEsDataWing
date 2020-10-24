@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System;
 
 public class Manager : MonoBehaviour
 {
@@ -12,10 +14,13 @@ public class Manager : MonoBehaviour
     
     [Header("DEBUG")]
     [SerializeField] private EGameState _gameState = EGameState.STAND_BY;
+    [SerializeField]private Text ScoreText=null;
+    [SerializeField]private int Scoreint=0;
 
     private static Manager _instance = null;
     private ShipLocomotion _ship = null;
-
+    public static Action<EGameState> OnGameStateChangedEvent;
+    
     private void Awake()
     {
         if (_instance != null)
@@ -36,7 +41,7 @@ public class Manager : MonoBehaviour
 
     private void OnDisable()
     {
-        ControlManager.OnActionPressedEvent += ActionPressed;
+        ControlManager.OnActionPressedEvent -= ActionPressed;
     }
 
     private void ActionPressed()
@@ -46,6 +51,7 @@ public class Manager : MonoBehaviour
             case EGameState.STAND_BY:
             {
                 _gameState = EGameState.GAME;
+                OnGameStateChangedEvent?.Invoke(_gameState);
                 break;
             }
         }
@@ -54,5 +60,11 @@ public class Manager : MonoBehaviour
     public static bool IsNull(object objectToCheck)
     {
         return (objectToCheck == null);
+    }
+
+    public void ScoreAddition(int points){
+        Scoreint+=points;
+        ScoreText.text = Scoreint.ToString();
+
     }
 }

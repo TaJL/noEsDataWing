@@ -5,6 +5,18 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]private float EnemySpeed=1;
+    private GameObject Wings;
+    private GameObject Player;
+    private Manager _manager;
+
+    private void Awake()
+    {
+        Player= GameObject.Find("Player(Clone)");//ss
+        _manager = GameObject.Find("Manager").GetComponent<Manager>();
+        if(Player==null){
+            Debug.Log("No encuentro el GameObject Player");
+        }
+    }
     
     private void Update()
     {
@@ -14,4 +26,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject == Player){
+            Debug.Log("GameOver");
+        }
+    }
 }
