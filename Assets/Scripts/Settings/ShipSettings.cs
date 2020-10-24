@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSettings : ScriptableObject
+public class ShipSettings : ScriptableObject
 {
     public float BaseSpeed => _baseSpeed;
 

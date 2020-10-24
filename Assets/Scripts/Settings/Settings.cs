@@ -5,11 +5,11 @@ using UnityEngine;
 public class Settings : MonoBehaviour
 {
     public static Settings Instance => _instance;
-    public PlayerSettings Player => _player;
+    public ShipSettings Player => _ship;
 
 
     private static Settings _instance = null;
-    private PlayerSettings _player = null;
+    private ShipSettings _ship = null;
 
     private void Awake()
     {
@@ -19,7 +19,7 @@ public class Settings : MonoBehaviour
         }
         _instance = this;
 
-        _player = Load<PlayerSettings>();
+        _ship = Load<ShipSettings>();
     }
 
     private T Load<T>() where T : ScriptableObject

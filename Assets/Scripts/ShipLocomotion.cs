@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerLocomotion : MonoBehaviour
+public class ShipLocomotion : MonoBehaviour
 {
     public Vector2 Velocity { get => _velocity; set => _velocity = value; }
 
-    private PlayerSettings _settings = null;
+    private ShipSettings _settings = null;
     private Rigidbody2D _rigidBody = null;
 
     private Vector2 _velocity
