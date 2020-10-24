@@ -6,8 +6,13 @@ public class Manager : MonoBehaviour
 {
     public static Manager Instance => _instance;
 
-    [SerializeField] private ShipLocomotion _shipPrefab = null;
+    public EGameState GameState => _gameState;
 
+    [SerializeField] private ShipLocomotion _shipPrefab = null;
+    
+    [Header("DEBUG")]
+    [SerializeField] private EGameState _gameState = EGameState.STAND_BY;
+    
     private static Manager _instance = null;
     private ShipLocomotion _ship = null;
 

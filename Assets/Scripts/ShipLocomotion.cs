@@ -40,6 +40,14 @@ public class ShipLocomotion : MonoBehaviour
 
     void Update()
     {
+        if (Manager.Instance.GameState == EGameState.GAME)
+        {
+            UpdateGame();
+        }
+    }
+
+    void UpdateGame()
+    {
         _velocity = Vector2.up * _settings.BaseSpeed;
     }
 

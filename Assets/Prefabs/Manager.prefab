@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5768405580569796603}
   - component: {fileID: 5768405580569796602}
   - component: {fileID: 5768405580569796597}
+  - component: {fileID: 4448010701961352526}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -44,6 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428a606dd6e91e3498c8bb823c0f095b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shipPrefab: {fileID: 6558742922000856855, guid: e710277a714a98142b266110b16d2a7f,
+    type: 3}
+  _gameState: 1
 --- !u!114 &5768405580569796597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,5 +58,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 187dde95721da4c4294a5faa1fd3c31f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4448010701961352526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5768405580569796596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242072f9de9886b4eadaef34c5dc92e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
