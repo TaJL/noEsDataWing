@@ -5,7 +5,7 @@ using UnityEngine;
 public class Settings : MonoBehaviour
 {
     public static Settings Instance => _instance;
-    public ShipSettings Player => _ship;
+    public ShipSettings Ship => _ship;
 
 
     private static Settings _instance = null;
@@ -20,6 +20,7 @@ public class Settings : MonoBehaviour
         _instance = this;
 
         _ship = Load<ShipSettings>();
+        print(_ship.BaseSpeed);
     }
 
     private T Load<T>() where T : ScriptableObject
