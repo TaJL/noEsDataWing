@@ -6,6 +6,8 @@ public class Manager : MonoBehaviour
 {
     public static Manager Instance => _instance;
 
+    [SerializeField] private ShipLocomotion _shipPrefab = null;
+
     private static Manager _instance = null;
     private ShipLocomotion _ship = null;
 
@@ -18,17 +20,12 @@ public class Manager : MonoBehaviour
         }
         _instance = this;
 
-        _ship = Instantiate<ShipLocomotion>(Load<ShipLocomotion>());
+        _ship = Instantiate<ShipLocomotion>(_shipPrefab);
         IsNull(_ship);
     }
 
     public static bool IsNull(object objectToCheck)
     {
         return (objectToCheck == null);
-    }
-
-    private T Load<T>() where T : MonoBehaviour
-    {
-        return Resources.Load<T>(typeof(T).Name);
     }
 }

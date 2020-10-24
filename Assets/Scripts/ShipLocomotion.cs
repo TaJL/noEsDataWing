@@ -25,7 +25,7 @@ public class ShipLocomotion : MonoBehaviour
 
     private void Awake()
     {
-        _settings = Settings.Instance.Player;
+        _settings = Settings.Instance.Ship;
         if (Manager.IsNull(_settings))
         {
             return;
