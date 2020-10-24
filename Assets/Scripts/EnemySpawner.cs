@@ -57,18 +57,19 @@ public class EnemySpawner : MonoBehaviour
     }
 
     IEnumerator Spawn(){
-        int r = Random.Range(0,EnemiesQuantity);
-        GameObject gr =Enemies[r];
-        float xr= Random.Range(MinXSpawn,MaxXSpawn);
-        float yr= Random.Range(MinYSpawn,MaxYSpawn);
+
+        float xr;
+        float yr;
         
-        /*while(gr.activeSelf){
-            r = Random.Range(0,EnemiesQuantity);
-            gr =Enemies[r];
-        }*/
-        gr.transform.position = new Vector2(xr,yr);
-        gr.SetActive(true);
-        yield return new WaitForSeconds(2);
+        foreach(GameObject Enemy in Enemies){
+            if(!Enemy.activeSelf){
+                xr= Random.Range(MinXSpawn,MaxXSpawn);
+                yr= Random.Range(MinYSpawn,MaxYSpawn);
+                Enemy.transform.position = new Vector2(xr,yr);
+                Enemy.SetActive(true);
+            }
+            yield return new WaitForSeconds(2);
+        }
         StartCoroutine("Spawn");
     }
 }
