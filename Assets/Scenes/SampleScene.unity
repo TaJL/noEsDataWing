@@ -248,6 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemiesQuantity: 0
+  TimeBWEnemies: 2
   MinXSpawn: 0
   MaxXSpawn: 0
   MinYSpawn: 0
@@ -334,12 +335,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 5768405580569796602, guid: caf855f503430e347a19aac0a71f7d12,
-        type: 3}
-      propertyPath: _shipPrefab
-      value: 
-      objectReference: {fileID: 6558742922000856855, guid: e710277a714a98142b266110b16d2a7f,
-        type: 3}
     - target: {fileID: 5768405580569796603, guid: caf855f503430e347a19aac0a71f7d12,
         type: 3}
       propertyPath: m_LocalPosition.x
