@@ -20,7 +20,6 @@ public class Settings : MonoBehaviour
         _instance = this;
 
         _ship = Load<ShipSettings>();
-        print(_ship.BaseSpeed);
     }
 
     private T Load<T>() where T : ScriptableObject

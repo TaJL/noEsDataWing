@@ -14,6 +14,10 @@ public class ShipLocomotion : MonoBehaviour
     {
         get
         {
+            if (_rigidBody == null)
+            {
+                return Vector2.up;
+            }
             return _rigidBody.velocity + _deltaVelocity;
         }
         set
