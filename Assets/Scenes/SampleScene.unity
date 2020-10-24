@@ -248,7 +248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemiesQuantity: 0
-  EnemySpeed: 0
   MinXSpawn: 0
   MaxXSpawn: 0
   MinYSpawn: 0
@@ -269,12 +268,12 @@ PrefabInstance:
     - target: {fileID: 1881352783942570269, guid: b2aca5200ba5efc429c4beef70ce83f0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.68
+      value: 4.44
       objectReference: {fileID: 0}
     - target: {fileID: 1881352783942570269, guid: b2aca5200ba5efc429c4beef70ce83f0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.81
+      value: 6.06
       objectReference: {fileID: 0}
     - target: {fileID: 1881352783942570269, guid: b2aca5200ba5efc429c4beef70ce83f0,
         type: 3}

@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Edit")]
 
     [SerializeField]private int EnemiesQuantity;
-    [SerializeField]private float EnemySpeed;
+    [SerializeField]private float TimeBWEnemies=2;
     [SerializeField]private float MinXSpawn=0;
     [SerializeField]private float MaxXSpawn=0;
     [SerializeField]private float MinYSpawn=0;
@@ -24,10 +24,6 @@ public class EnemySpawner : MonoBehaviour
 
         if(EnemiesQuantity==0){
             EnemiesQuantity=5;
-        }
-
-        if(EnemySpeed==0){
-            EnemySpeed=2;
         }
 
         if(MinXSpawn==0){
@@ -50,7 +46,7 @@ public class EnemySpawner : MonoBehaviour
         }
         
     }
-
+    //s
     private void Start()
     {
         StartCoroutine("Spawn");
@@ -68,7 +64,7 @@ public class EnemySpawner : MonoBehaviour
                 Enemy.transform.position = new Vector2(xr,yr);
                 Enemy.SetActive(true);
             }
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(TimeBWEnemies);
         }
         StartCoroutine("Spawn");
     }
