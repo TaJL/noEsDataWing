@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [Header("Edit")]
+
+    [SerializeField]private int EnemiesQuantity;
+    [SerializeField]private float EnemySpeed;
+    [SerializeField]private float MinXSpawn=0;
+    [SerializeField]private float MaxXSpawn=0;
+    [SerializeField]private float MinYSpawn=0;
+    [SerializeField]private float MaxYSpawn=0;
+    [Header("Debug")]
     
-    [SerializeField]private int CantidadEnemigos;
-    [SerializeField]private float VelocidadEnemigos;
-    [SerializeField]private float MinXSpawn;
-    [SerializeField]private float MaxXSpawn;
-    [SerializeField]private float MinYSpawn;
-    [SerializeField]private float MaxYSpawn;
-    
-    [SerializeField]private List<GameObject> Enemies;
+    [SerializeField]private List<GameObject> Enemies=null;
     private Vector2 SpawnPosition;
     private Vector2 RandomPositionSpawn;
 
@@ -20,22 +22,53 @@ public class EnemySpawner : MonoBehaviour
     {
         SpawnPosition=transform.position;
 
-        if(CantidadEnemigos==0){
-            CantidadEnemigos=5;
+        if(EnemiesQuantity==0){
+            EnemiesQuantity=5;
         }
 
-        if(VelocidadEnemigos==0){
-            VelocidadEnemigos=2;
+        if(EnemySpeed==0){
+            EnemySpeed=2;
         }
 
-        
-    }
-    private void Start()
-    {
-        for(int i=0;i<CantidadEnemigos;i++){
+        if(MinXSpawn==0){
+            MinXSpawn=-2.4f;
+        }
+        if(MaxXSpawn==0){
+            MaxXSpawn=2.4f;
+        }
+        if(MinYSpawn==0){
+            MinYSpawn=5.4f;
+        }
+        if(MaxYSpawn==0){
+            MaxYSpawn=6.4f;
+        }
+
+        for(int i=0;i<EnemiesQuantity;i++){
             GameObject aux = Instantiate(Resources.Load("Enemy")as GameObject,SpawnPosition,Quaternion.identity);
             Enemies.Add(aux);
             aux.SetActive(false);
         }
+        
+    }
+
+    private void Start()
+    {
+        StartCoroutine("Spawn");
+    }
+
+    IEnumerator Spawn(){
+        int r = Random.Range(0,EnemiesQuantity);
+        GameObject gr =Enemies[r];
+        float xr= Random.Range(MinXSpawn,MaxXSpawn);
+        float yr= Random.Range(MinYSpawn,MaxYSpawn);
+        
+        /*while(gr.activeSelf){
+            r = Random.Range(0,EnemiesQuantity);
+            gr =Enemies[r];
+        }*/
+        gr.transform.position = new Vector2(xr,yr);
+        gr.SetActive(true);
+        yield return new WaitForSeconds(2);
+        StartCoroutine("Spawn");
     }
 }
