@@ -1,51 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.IO;
 
-public class DataSaver : MonoBehaviour
+public static class DataSaver
 {
-    private Manager _manager=null;
-    private Timer _timer=null;
+    public static string directory= "/SavedData/";
+    public static string FileName= "Data.txt";
 
-    private void Awake()
-    {
-        _timer= GameObject.Find("Manager").GetComponent<Timer>();
-        _manager = GameObject.Find("Manager").GetComponent<Manager>();
-        if(_manager==null){
-            Debug.Log("No encuentro el manager");
+    public static void Save(DataFormat other){
+        string dir = Application.persistentDataPath + directory;
+
+        if(!Directory.Exists(dir)){
+            Directory.CreateDirectory(dir);
         }
-        if(_timer==null){
-            Debug.Log("No encuentro el manager");
-        }
+
+        string json = JsonUtility.ToJson(other);
+        File.WriteAllText(dir+FileName,json);
+        Debug.Log("Guarde datos");
     }
-    /*private void OnEnable()
-    {
-        Manager.OnGameStateChangedEvent+=EndState;
-    }*/
-    
-   /* private void OnDisable()
-    {
-        Manager.OnGameStateChangedEvent-=EndState;
-    }*/
-
-    /*public void EndState(EGameState other){
-        if(other==EGameState.GAME_OVER){
-            VariablesSave();
+    public static DataFormat Load(){
+        string fullpath = Application.persistentDataPath + directory + FileName;
+        DataFormat dt = new DataFormat();
+        if(File.Exists(fullpath)){
+            string json = File.ReadAllText(fullpath);
+            dt = JsonUtility.FromJson<DataFormat>(json);
+            Debug.Log("existen datos");
+        }else{
+            Debug.Log("no existen datos");
         }
-    }*/
-
-    public void VariablesSave(){
-        
-        DataFormat CurrentData = new DataFormat();
-        CurrentData.Score = _manager.Scoreint;
-        CurrentData.TimeElapsed = _timer.time;
-        CurrentData.PlayerName = "";//ss
-
-        string DataSaved = JsonUtility.ToJson(CurrentData);
-        
-        System.IO.File.Create("/DataSaved.json");
-        System.IO.File.WriteAllText(Application.dataPath+ "/Resources/JsonFile/DataSaved.json",DataSaved);
-        Debug.Log("Se guardaron los datos");
-        
+        return dt;
     }
 }

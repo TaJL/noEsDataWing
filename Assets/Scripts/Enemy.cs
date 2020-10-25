@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
     {
         if(other.gameObject == Player){
             _manager.ProvisionalGameOver();
+            
         }
     }
 }

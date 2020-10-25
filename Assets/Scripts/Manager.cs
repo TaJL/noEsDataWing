@@ -20,7 +20,8 @@ public class Manager : MonoBehaviour
 
     private static Manager _instance = null;
     private ShipLocomotion _ship = null;
-    private DataSaver _dataSaver;
+    public DataFormat _dataFormat;
+    private Timer _timer;
     public static Action<EGameState> OnGameStateChangedEvent;
     
     private void Awake()
@@ -35,9 +36,14 @@ public class Manager : MonoBehaviour
         _ship = Instantiate<ShipLocomotion>(_shipPrefab);
         IsNull(_ship);
 
-        _dataSaver = GetComponent<DataSaver>();
+        _timer = GetComponent<Timer>();
     }
 
+    private void Update()
+    {
+        _dataFormat.Score =Scoreint;
+        _dataFormat.TimeElapsed = _timer.time;
+    }
     private void OnEnable()
     {
         ControlManager.OnActionPressedEvent += ActionPressed;
@@ -74,9 +80,8 @@ public class Manager : MonoBehaviour
 
     public void ProvisionalGameOver(){
         //provisional porque no tengo ni puta idea de como hacerlo con el temita de Action
-        _dataSaver.VariablesSave();
-        _gameState = EGameState.GAME_OVER;
-        Debug.Log("GameOver(Estoy al final de manager)");
-        //SceneManager.LoadScene(0);
+        DataSaver.Save(_dataFormat);
+        Debug.Log("GameOver (estoy al final de manager)");
+        Time.timeScale = 0;
     }
 }
