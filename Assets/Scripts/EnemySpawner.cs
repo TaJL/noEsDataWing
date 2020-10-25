@@ -78,7 +78,7 @@ public class EnemySpawner : MonoBehaviour
             if(!Enemy.activeSelf){
                 xr= Random.Range(MinXSpawn,MaxXSpawn);
                 yr= Random.Range(MinYSpawn,MaxYSpawn);
-                Enemy.transform.position = new Vector2(xr,(yr+9.5f+CameraPosition.position.y));
+                Enemy.transform.position = new Vector2((xr+CameraPosition.position.x),(yr+9.5f+CameraPosition.position.y));
                 Enemy.SetActive(true);
             }
             yield return new WaitForSeconds(TimeBWEnemies);
