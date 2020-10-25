@@ -724,5 +724,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 8966326066582284364, guid: c65217006c801cc428dd091e20fbaea4,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.0627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 8966326066582284364, guid: c65217006c801cc428dd091e20fbaea4,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.03137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 8966326066582284364, guid: c65217006c801cc428dd091e20fbaea4,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 8966326066582284364, guid: c65217006c801cc428dd091e20fbaea4,
+        type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c65217006c801cc428dd091e20fbaea4, type: 3}
