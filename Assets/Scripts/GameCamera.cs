@@ -7,6 +7,7 @@ public class GameCamera : MonoBehaviour
     [SerializeField] private Vector2 _followVelocity = Vector2.zero;
     [SerializeField] private float _slowFollowDistance = 1;
     [SerializeField] private float _fastFollowDistance = 4;
+    [SerializeField] private float _maxHorizontalFollow = 4;
     private Transform _target = null;
 
     private void OnValidate()
@@ -40,5 +41,8 @@ public class GameCamera : MonoBehaviour
         {
             transform.position += new Vector3(0, Time.deltaTime * _followVelocity.y, 0);
         }
+
+        float newXposition = Mathf.Clamp(_target.position.x, -_maxHorizontalFollow, _maxHorizontalFollow);
+        transform.position = new Vector3(newXposition, transform.position.y, transform.position.z);
     }
 }
