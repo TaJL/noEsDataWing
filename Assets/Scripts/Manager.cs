@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System;
 
 public class Manager : MonoBehaviour
@@ -15,10 +16,11 @@ public class Manager : MonoBehaviour
     [Header("DEBUG")]
     [SerializeField] private EGameState _gameState = EGameState.STAND_BY;
     [SerializeField]private Text ScoreText=null;
-    [SerializeField]private int Scoreint=0;
+    public int Scoreint=0;
 
     private static Manager _instance = null;
     private ShipLocomotion _ship = null;
+    private DataSaver _dataSaver;
     public static Action<EGameState> OnGameStateChangedEvent;
     
     private void Awake()
@@ -32,6 +34,8 @@ public class Manager : MonoBehaviour
 
         _ship = Instantiate<ShipLocomotion>(_shipPrefab);
         IsNull(_ship);
+
+        _dataSaver = GetComponent<DataSaver>();
     }
 
     private void OnEnable()
@@ -66,5 +70,13 @@ public class Manager : MonoBehaviour
         Scoreint+=points;
         ScoreText.text = Scoreint.ToString();
 
+    }
+
+    public void ProvisionalGameOver(){
+        //provisional porque no tengo ni puta idea de como hacerlo con el temita de Action
+        _dataSaver.VariablesSave();
+        _gameState = EGameState.GAME_OVER;
+        Debug.Log("GameOver(Estoy al final de manager)");
+        //SceneManager.LoadScene(0);
     }
 }
