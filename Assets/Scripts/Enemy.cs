@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
         if(CameraPosition==null){
             Debug.Log("No encuentro la Camara");
         }
+        
     }
     
     private void Update()
