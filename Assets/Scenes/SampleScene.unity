@@ -171,6 +171,7 @@ MonoBehaviour:
   MinYSpawn: 0
   MaxYSpawn: 0
   Enemies: []
+  CameraPosition: {fileID: 1517461433}
 --- !u!1 &709694265
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,6 +400,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2aca5200ba5efc429c4beef70ce83f0, type: 3}
+--- !u!4 &1517461433 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8966326066199109572, guid: c65217006c801cc428dd091e20fbaea4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8966326066734157875}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1599242788
 GameObject:
   m_ObjectHideFlags: 0

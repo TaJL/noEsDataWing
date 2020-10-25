@@ -15,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Debug")]
     
     [SerializeField]private List<GameObject> Enemies=null;
+    [SerializeField]private Transform CameraPosition=null;
     private Vector2 SpawnPosition;
     private Vector2 RandomPositionSpawn;
 
@@ -33,12 +34,15 @@ public class EnemySpawner : MonoBehaviour
             MaxXSpawn=2.4f;
         }
         if(MinYSpawn==0){
-            MinYSpawn=5.4f;
+            MinYSpawn=0.1f;
         }
         if(MaxYSpawn==0){
-            MaxYSpawn=6.4f;
+            MaxYSpawn=0.9f;
         }
 
+        if(CameraPosition==null){
+            Debug.Log("No encuentro la camara");
+        }
         for(int i=0;i<EnemiesQuantity;i++){
             GameObject aux = Instantiate(Resources.Load("Enemy")as GameObject,SpawnPosition,Quaternion.identity);
             Enemies.Add(aux);
@@ -74,7 +78,7 @@ public class EnemySpawner : MonoBehaviour
             if(!Enemy.activeSelf){
                 xr= Random.Range(MinXSpawn,MaxXSpawn);
                 yr= Random.Range(MinYSpawn,MaxYSpawn);
-                Enemy.transform.position = new Vector2(xr,yr);
+                Enemy.transform.position = new Vector2(xr,(yr+9.5f+CameraPosition.position.y));
                 Enemy.SetActive(true);
             }
             yield return new WaitForSeconds(TimeBWEnemies);
