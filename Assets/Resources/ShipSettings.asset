@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ShipSettings
   m_EditorClassIdentifier: 
   _baseSpeed: 3
-  _turnSpeed: 1440
+  _turnSpeed: 480

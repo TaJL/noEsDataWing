@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class ShipLocomotion : MonoBehaviour
 {
+    public static Action<ShipLocomotion> OnInstantiatedEvent;
+
     public Vector2 Velocity { get => _velocity; set => _velocity = value; }
 
     private ShipSettings _settings = null;
@@ -46,6 +49,8 @@ public class ShipLocomotion : MonoBehaviour
         {
             return;
         }
+
+        OnInstantiatedEvent?.Invoke(this);
     }
 
     void Update()
