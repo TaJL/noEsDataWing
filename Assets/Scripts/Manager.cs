@@ -23,7 +23,6 @@ public class Manager : MonoBehaviour
     public DataFormat _dataFormat;
     private Timer _timer;
     public static Action<EGameState> OnGameStateChangedEvent;
-    
     private void Awake()
     {
         if (_instance != null)
@@ -37,6 +36,8 @@ public class Manager : MonoBehaviour
         IsNull(_ship);
 
         _timer = GetComponent<Timer>();
+
+        _dataFormat.PlayerName = GameObject.Find("MenuManager").GetComponent<MenuManager>().PlayerName;
     }
 
     private void Update()
