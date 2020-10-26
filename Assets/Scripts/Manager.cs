@@ -16,7 +16,9 @@ public class Manager : MonoBehaviour
     
     [Header("DEBUG")]
     [SerializeField] private EGameState _gameState = EGameState.STAND_BY;
-    [SerializeField]private Text ScoreText=null;
+    [SerializeField] private Text ScoreText=null;
+    [SerializeField] private AudioSource Speaker=null;
+    [SerializeField] private AudioClip Death=null;
     public int Scoreint=0;
 
     private ShipLocomotion _ship = null;
@@ -72,7 +74,8 @@ public class Manager : MonoBehaviour
     }
 
     public void ProvisionalGameOver(){
-        //provisional porque no tengo ni puta idea de como hacerlo con el temita de Action
+        
+        Speaker.PlayOneShot(Death,volumeScale:100);
         DataHandler.Instance.Save();
         SceneManager.LoadScene(0);
     }
