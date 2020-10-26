@@ -8,8 +8,26 @@ using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour
 {
+    [Header("Debug")]
     [SerializeField]private GameObject ScorePanel=null;
-    [SerializeField]private Text ScoreData=null;
+    [SerializeField]private Text Score1=null;
+    [SerializeField]private Text Time1=null;
+    [SerializeField]private Text Name1=null;
+    /*
+    [SerializeField]private Text Name2=null;
+    [SerializeField]private Text Name3=null;
+    [SerializeField]private Text Name4=null;
+    [SerializeField]private Text Name5=null;
+    [SerializeField]private Text Score2=null;
+    [SerializeField]private Text Score3=null;
+    [SerializeField]private Text Score4=null;
+    [SerializeField]private Text Score5=null;
+    [SerializeField]private Text Time2=null;
+    [SerializeField]private Text Time3=null;
+    [SerializeField]private Text Time4=null;
+    [SerializeField]private Text Time5=null;
+    */
+  
     public string PlayerName=null;
     private void Awake()
     {
@@ -30,7 +48,9 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
     public void ScoreEnter(){
-        ScoreData.text = ("Score: " + DataSaver.Load().Score + " " + "Time: " + DataSaver.Load().TimeElapsed + " seconds" + " Name: " + DataSaver.Load().PlayerName);
+        Score1.text = DataSaver.Load().Score.ToString();
+        Time1.text = DataSaver.Load().TimeElapsed.ToString();
+        Name1.text = DataSaver.Load().PlayerName;
         ScorePanel.SetActive(true);
     }
     public void ScoreBack(){
