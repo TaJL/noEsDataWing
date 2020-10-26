@@ -28,10 +28,16 @@ public class Background : MonoBehaviour
     {
         _target = ship.transform;
         Manager.IsNull(_target);
+        print(_target);
     }
 
     private void LateUpdate()
     {
+        if (_target == null)
+        {
+            return;
+        }
+        
         if (_target.position.y - transform.position.y >= _textureUnitSize)
         {
             transform.position += new Vector3(0, _textureUnitSize, 0);
