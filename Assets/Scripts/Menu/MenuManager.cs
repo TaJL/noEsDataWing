@@ -48,9 +48,10 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
     public void ScoreEnter(){
-        Score1.text = DataSaver.Load().Score.ToString();
-        Time1.text = DataSaver.Load().TimeElapsed.ToString();
-        Name1.text = DataSaver.Load().PlayerName;
+        DataFormat save = DataSaver.Load();
+        Score1.text = save.Score.ToString();
+        Time1.text = save.TimeElapsed.ToString();
+        Name1.text = save.PlayerName;
         ScorePanel.SetActive(true);
     }
     public void ScoreBack(){

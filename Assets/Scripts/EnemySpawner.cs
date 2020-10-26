@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Edit")]
 
     [SerializeField]private int EnemiesQuantity;
-    [SerializeField]private float TimeBWEnemies=2;
+    [SerializeField]private float TimeBWEnemies=3;
     [SerializeField]private float MinXSpawn=0;
     [SerializeField]private float MaxXSpawn=0;
     [SerializeField]private float MinYSpawn=0;
@@ -18,13 +18,13 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]private Transform CameraPosition=null;
     private Vector2 SpawnPosition;
     private Vector2 RandomPositionSpawn;
-
+    private Manager _manager;
     private void Awake()
     {
         SpawnPosition=transform.position;
 
         if(EnemiesQuantity==0){
-            EnemiesQuantity=5;
+            EnemiesQuantity=50;
         }
 
         if(MinXSpawn==0){
@@ -44,11 +44,29 @@ public class EnemySpawner : MonoBehaviour
             Debug.Log("No encuentro la camara");
         }
         for(int i=0;i<EnemiesQuantity;i++){
-            GameObject aux = Instantiate(Resources.Load("Enemy")as GameObject,SpawnPosition,Quaternion.identity);
+            GameObject aux = Instantiate(Resources.Load("Enemy")as GameObject,SpawnPosition,Quaternion.identity,transform);
             Enemies.Add(aux);
             aux.SetActive(false);
         }
+
+        _manager = GameObject.Find("Manager").GetComponent<Manager>();
         
+    }
+
+    private void Update()
+    {
+        //ss
+        if(_manager._dataFormat.TimeElapsed>50){
+            TimeBWEnemies=0.5f;
+        }else if(_manager._dataFormat.TimeElapsed>40 && _manager._dataFormat.TimeElapsed< 50){
+            TimeBWEnemies=1;
+        }else if(_manager._dataFormat.TimeElapsed>30 && _manager._dataFormat.TimeElapsed< 40){
+            TimeBWEnemies=1.5f;
+        }else if(_manager._dataFormat.TimeElapsed>20 && _manager._dataFormat.TimeElapsed< 30){
+            TimeBWEnemies=2;
+        }else if(_manager._dataFormat.TimeElapsed>10 && _manager._dataFormat.TimeElapsed< 20){
+            TimeBWEnemies=2.5f;
+        }
     }
 
     private void OnEnable()

@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemiesQuantity: 0
-  TimeBWEnemies: 2
+  TimeBWEnemies: 3
   MinXSpawn: 0
   MaxXSpawn: 0
   MinYSpawn: 0

@@ -82,7 +82,6 @@ public class Manager : MonoBehaviour
     public void ProvisionalGameOver(){
         //provisional porque no tengo ni puta idea de como hacerlo con el temita de Action
         DataSaver.Save(_dataFormat);
-        Debug.Log("GameOver (estoy al final de manager)");
-        Time.timeScale = 0;
+        SceneManager.LoadScene(0);
     }
 }

@@ -12,7 +12,7 @@ public static class DataSaver
         if(!Directory.Exists(dir)){
             Directory.CreateDirectory(dir);
         }
-
+        
         string json = JsonUtility.ToJson(other);
         File.WriteAllText(dir+FileName,json);
         Debug.Log("Guarde datos");
