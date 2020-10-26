@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
         SpawnPosition=transform.position;
 
         if(EnemiesQuantity==0){
-            EnemiesQuantity=50;
+            EnemiesQuantity=25;
         }
 
         if(MinXSpawn==0){
@@ -55,18 +55,22 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        //ss
-        if(_manager._dataFormat.TimeElapsed>50){
+        if(_manager._dataFormat.TimeElapsed>70){
+            TimeBWEnemies=0.1f;
+        }else if(_manager._dataFormat.TimeElapsed>60){
+            TimeBWEnemies=0.3f;
+        }else if(_manager._dataFormat.TimeElapsed>50){
             TimeBWEnemies=0.5f;
-        }else if(_manager._dataFormat.TimeElapsed>40 && _manager._dataFormat.TimeElapsed< 50){
+        }else if(_manager._dataFormat.TimeElapsed>40){
             TimeBWEnemies=1;
-        }else if(_manager._dataFormat.TimeElapsed>30 && _manager._dataFormat.TimeElapsed< 40){
+        }else if(_manager._dataFormat.TimeElapsed>30){
             TimeBWEnemies=1.5f;
-        }else if(_manager._dataFormat.TimeElapsed>20 && _manager._dataFormat.TimeElapsed< 30){
+        }else if(_manager._dataFormat.TimeElapsed>20){
             TimeBWEnemies=2;
-        }else if(_manager._dataFormat.TimeElapsed>10 && _manager._dataFormat.TimeElapsed< 20){
+        }else if(_manager._dataFormat.TimeElapsed>10){
             TimeBWEnemies=2.5f;
         }
+        
     }
 
     private void OnEnable()
