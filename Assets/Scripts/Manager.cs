@@ -8,6 +8,7 @@ using System;
 public class Manager : MonoBehaviour
 {
     public static Manager Instance => _instance;
+    private static Manager _instance = null;
 
     public EGameState GameState => _gameState;
 
@@ -18,32 +19,23 @@ public class Manager : MonoBehaviour
     [SerializeField]private Text ScoreText=null;
     public int Scoreint=0;
 
-    private static Manager _instance = null;
     private ShipLocomotion _ship = null;
-    public DataFormat _dataFormat;
     private Timer _timer;
     public static Action<EGameState> OnGameStateChangedEvent;
     private void Awake()
     {
-        if (_instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
         _instance = this;
 
         _ship = Instantiate<ShipLocomotion>(_shipPrefab);
         IsNull(_ship);
 
         _timer = GetComponent<Timer>();
-
-        _dataFormat.PlayerName = GameObject.Find("MenuManager").GetComponent<MenuManager>().PlayerName;
     }
 
     private void Update()
     {
-        _dataFormat.Score =Scoreint;
-        _dataFormat.TimeElapsed = _timer.time;
+        DataHandler.Instance.ActualPlayer.Score =Scoreint;
+        DataHandler.Instance.ActualPlayer.TimeElapsed = _timer.time;
     }
     private void OnEnable()
     {
@@ -81,8 +73,7 @@ public class Manager : MonoBehaviour
 
     public void ProvisionalGameOver(){
         //provisional porque no tengo ni puta idea de como hacerlo con el temita de Action
-        DataSaver.Save(_dataFormat);
-        Destroy(GameObject.Find("MenuManager"));
+        DataHandler.Instance.Save();
         SceneManager.LoadScene(0);
     }
 }
