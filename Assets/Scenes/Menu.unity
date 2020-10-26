@@ -727,6 +727,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreRow07
       objectReference: {fileID: 0}
+    - target: {fileID: 6434943633586764366, guid: ad1c89e650405084eb4cfa3ada59d74f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad1c89e650405084eb4cfa3ada59d74f, type: 3}
 --- !u!224 &202628188 stripped
@@ -1035,7 +1040,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &294774525
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1094,6 +1099,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 294774524}
   m_CullTransparentMesh: 0
+--- !u!114 &304129035 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6970759373680862113, guid: ad1c89e650405084eb4cfa3ada59d74f,
+    type: 3}
+  m_PrefabInstance: {fileID: 846114858}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc27318603390f4bbfa63c0297b854b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &358239156
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,6 +1450,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreRow08
       objectReference: {fileID: 0}
+    - target: {fileID: 6434943633586764366, guid: ad1c89e650405084eb4cfa3ada59d74f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad1c89e650405084eb4cfa3ada59d74f, type: 3}
 --- !u!224 &544565409 stripped
@@ -1558,6 +1580,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreRow06
       objectReference: {fileID: 0}
+    - target: {fileID: 6434943633586764366, guid: ad1c89e650405084eb4cfa3ada59d74f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad1c89e650405084eb4cfa3ada59d74f, type: 3}
 --- !u!224 &641667683 stripped
@@ -1566,6 +1593,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 641667682}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &697130637 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6970759373680862113, guid: ad1c89e650405084eb4cfa3ada59d74f,
+    type: 3}
+  m_PrefabInstance: {fileID: 544565408}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc27318603390f4bbfa63c0297b854b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &703392293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1680,6 +1719,11 @@ MonoBehaviour:
   - {fileID: 16162654}
   - {fileID: 1890634962}
   - {fileID: 43110173}
+  - {fileID: 1519398415}
+  - {fileID: 1026821374}
+  - {fileID: 697130637}
+  - {fileID: 304129035}
+  - {fileID: 1331550044}
   PlayerName: 
 --- !u!4 &839883483
 Transform:
@@ -1811,6 +1855,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ScoreRow09
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434943633586764366, guid: ad1c89e650405084eb4cfa3ada59d74f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad1c89e650405084eb4cfa3ada59d74f, type: 3}
@@ -2060,6 +2109,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979568365}
   m_CullTransparentMesh: 0
+--- !u!114 &1026821374 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6970759373680862113, guid: ad1c89e650405084eb4cfa3ada59d74f,
+    type: 3}
+  m_PrefabInstance: {fileID: 202628187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc27318603390f4bbfa63c0297b854b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1080978399
 GameObject:
   m_ObjectHideFlags: 0
@@ -2093,10 +2154,10 @@ RectTransform:
   m_Father: {fileID: 294774525}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 214.1, y: -564.2}
-  m_SizeDelta: {x: 313.08078, y: 196.26207}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -156.54, y: 98.20001}
+  m_SizeDelta: {x: 313.0808, y: 196.26208}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1080978401
 MonoBehaviour:
@@ -2281,6 +2342,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246765448}
   m_CullTransparentMesh: 0
+--- !u!114 &1331550044 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6970759373680862113, guid: ad1c89e650405084eb4cfa3ada59d74f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1863107633}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc27318603390f4bbfa63c0297b854b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1519398415 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6970759373680862113, guid: ad1c89e650405084eb4cfa3ada59d74f,
+    type: 3}
+  m_PrefabInstance: {fileID: 641667682}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc27318603390f4bbfa63c0297b854b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1553791829
 GameObject:
   m_ObjectHideFlags: 0
@@ -2695,6 +2780,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ScoreRow10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434943633586764366, guid: ad1c89e650405084eb4cfa3ada59d74f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad1c89e650405084eb4cfa3ada59d74f, type: 3}
