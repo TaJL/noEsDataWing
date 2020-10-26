@@ -28,6 +28,9 @@ public class Manager : MonoBehaviour
     {
         _instance = this;
 
+        DataHandler dataHandler = new DataHandler();
+        dataHandler.Inicialize();
+
         _ship = Instantiate<ShipLocomotion>(_shipPrefab);
         IsNull(_ship);
 
@@ -36,7 +39,7 @@ public class Manager : MonoBehaviour
 
     private void Update()
     {
-        DataHandler.Instance.ActualPlayer.Score =Scoreint;
+        DataHandler.Instance.ActualPlayer.Score = Scoreint;
         DataHandler.Instance.ActualPlayer.TimeElapsed = _timer.time;
     }
     private void OnEnable()
@@ -73,8 +76,14 @@ public class Manager : MonoBehaviour
 
     }
 
-    public void ProvisionalGameOver(){
-        
+    public void ProvisionalGameOver()
+    {
+        if (_gameState == EGameState.GAME_OVER)
+        {
+            return;
+        }
+
+        _gameState = EGameState.GAME_OVER;
         Speaker.PlayOneShot(Death,volumeScale:100);
         DataHandler.Instance.Save();
         SceneManager.LoadScene(0);

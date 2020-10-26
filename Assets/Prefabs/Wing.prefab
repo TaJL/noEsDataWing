@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speaker: {fileID: 0}
   Kill: {fileID: 8300000, guid: a8fe9697d27daf247aad7cda31314105, type: 3}
+  enemyKillVFX: {fileID: 3275978891403640414, guid: 73a6243de9102d2489dbacc6afbf00bb,
+    type: 3}
 --- !u!212 &455564005791902780
 SpriteRenderer:
   m_ObjectHideFlags: 0

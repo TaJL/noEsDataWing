@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1521364315039537423}
   - component: {fileID: 1521364315039537420}
-  - component: {fileID: 1521364315039537422}
   - component: {fileID: 790299629983261366}
   m_Layer: 8
   m_Name: Background
@@ -83,19 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &1521364315039537422
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1521364315039537421}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 8, y: 12, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &790299629983261366
 MonoBehaviour:
   m_ObjectHideFlags: 0

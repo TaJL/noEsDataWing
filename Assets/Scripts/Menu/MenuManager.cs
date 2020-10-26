@@ -47,6 +47,4 @@ public class MenuManager : MonoBehaviour
     public void NameSetter(Text other){
         DataHandler.Instance.ActualPlayer.Name = other.text;
     }
-
-    
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Background : MonoBehaviour
 {
+    [SerializeField]private float speed = 0;
     private float _textureUnitSize = 0;
     private Transform _target = null;
 
@@ -11,7 +12,7 @@ public class Background : MonoBehaviour
     {
         Sprite sprite = GetComponent<SpriteRenderer>().sprite;
         Texture2D texture = sprite.texture;
-        _textureUnitSize = texture.height / sprite.pixelsPerUnit;
+        _textureUnitSize = transform.lossyScale.y * texture.height / sprite.pixelsPerUnit;
     }
 
     private void OnEnable()
@@ -42,5 +43,7 @@ public class Background : MonoBehaviour
         {
             transform.position += new Vector3(0, _textureUnitSize, 0);
         }
+
+        transform.position  += new Vector3(0, speed * Time.deltaTime, 0);
     }
 }

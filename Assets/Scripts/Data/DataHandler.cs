@@ -22,6 +22,7 @@ public class DataHandler
 
         DataFormat save = Load();
         HighScores = save.HighScores;
+        
         for(int positionInScore = 0; positionInScore < HighScores.Length; positionInScore++)
         {   
             if (HighScores[positionInScore] != null)
@@ -69,7 +70,6 @@ public class DataHandler
 
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(dir+FileName,json);
-        Debug.Log("Guarde datos");
     }
 
     private DataFormat Load(){
@@ -86,7 +86,6 @@ public class DataHandler
                 data.HighScores[positionInScore].TimeElapsed = 0;
                 data.HighScores[positionInScore].Name = "----";
             }
-            Debug.Log("no existen datos");
         }
         return data;
     }

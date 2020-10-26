@@ -59,6 +59,10 @@ public class ShipLocomotion : MonoBehaviour
         {
             UpdateGame();
         }
+        if (Mathf.Abs(transform.position.x) > 3.6f)
+        {
+            Manager.Instance.ProvisionalGameOver();
+        }
     }
 
     void UpdateGame()

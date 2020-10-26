@@ -11,8 +11,7 @@ public class Enemy : MonoBehaviour
     private Transform CameraPosition=null;
     private void Awake()
     {
-        Player= GameObject.Find("Player(Clone)");//ss
-        _manager = GameObject.Find("Manager").GetComponent<Manager>();
+        Player= GameObject.Find("Player(Clone)");
         CameraPosition=GameObject.Find("GameCamera").transform;
         if(Player==null){
             Debug.Log("No encuentro el GameObject Player");
@@ -34,8 +33,7 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject == Player){
-            _manager.ProvisionalGameOver();
-            
+            Manager.Instance.ProvisionalGameOver();
         }
     }
 }
