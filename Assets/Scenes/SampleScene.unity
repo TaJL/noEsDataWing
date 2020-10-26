@@ -608,6 +608,16 @@ PrefabInstance:
       propertyPath: ScoreText
       value: 
       objectReference: {fileID: 1893567659}
+    - target: {fileID: 5768405580569796602, guid: caf855f503430e347a19aac0a71f7d12,
+        type: 3}
+      propertyPath: Speaker
+      value: 
+      objectReference: {fileID: 8966326066734157876}
+    - target: {fileID: 5768405580569796602, guid: caf855f503430e347a19aac0a71f7d12,
+        type: 3}
+      propertyPath: Death
+      value: 
+      objectReference: {fileID: 8300000, guid: caf49f994c3128a4eab57a9adc9ae931, type: 3}
     - target: {fileID: 5768405580569796603, guid: caf855f503430e347a19aac0a71f7d12,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -905,3 +915,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c65217006c801cc428dd091e20fbaea4, type: 3}
+--- !u!82 &8966326066734157876 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8552613177153410314, guid: c65217006c801cc428dd091e20fbaea4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8966326066734157875}
+  m_PrefabAsset: {fileID: 0}
