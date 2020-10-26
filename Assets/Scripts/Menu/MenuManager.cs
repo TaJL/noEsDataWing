@@ -8,31 +8,17 @@ using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour
 {
-    [Header("Debug")]
-    [SerializeField]private GameObject ScorePanel=null;
-    [SerializeField]private Text Score1=null;
-    [SerializeField]private Text Time1=null;
-    [SerializeField]private Text Name1=null;
-    /*
-    [SerializeField]private Text Name2=null;
-    [SerializeField]private Text Name3=null;
-    [SerializeField]private Text Name4=null;
-    [SerializeField]private Text Name5=null;
-    [SerializeField]private Text Score2=null;
-    [SerializeField]private Text Score3=null;
-    [SerializeField]private Text Score4=null;
-    [SerializeField]private Text Score5=null;
-    [SerializeField]private Text Time2=null;
-    [SerializeField]private Text Time3=null;
-    [SerializeField]private Text Time4=null;
-    [SerializeField]private Text Time5=null;
-    */
-  
+    [SerializeField] private GameObject ScorePanel=null;
+    [SerializeField] private PlayerDataShowcast[] scoreBoard = null;
+
     public string PlayerName=null;
+
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        DataHandler dataHandler = new DataHandler();
+        dataHandler.Inicialize();
     }
+
     public void OnButton(Text other){
         other.fontSize += 2;
     }
@@ -48,17 +34,18 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
     public void ScoreEnter(){
-        DataFormat save = DataSaver.Load();
-        Score1.text = save.Score.ToString();
-        Time1.text = save.TimeElapsed.ToString();
-        Name1.text = save.PlayerName;
+        for (int i = 0; i < scoreBoard.Length; i++)
+        {
+            PlayerData playerData = DataHandler.Instance.HighScores[i];
+            scoreBoard[i].SetTexts(playerData.Score, playerData.TimeElapsed, playerData.Name);
+        }
         ScorePanel.SetActive(true);
     }
     public void ScoreBack(){
         ScorePanel.SetActive(false);
     }
     public void NameSetter(Text other){
-        PlayerName = other.text;
+        DataHandler.Instance.ActualPlayer.Name = other.text;
     }
 
     

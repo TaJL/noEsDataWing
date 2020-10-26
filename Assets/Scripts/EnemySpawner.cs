@@ -55,19 +55,20 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if(_manager._dataFormat.TimeElapsed>70){
+        int time = DataHandler.Instance.ActualPlayer.TimeElapsed;
+        if(time>70){
             TimeBWEnemies=0.1f;
-        }else if(_manager._dataFormat.TimeElapsed>60){
+        }else if(time>60){
             TimeBWEnemies=0.3f;
-        }else if(_manager._dataFormat.TimeElapsed>50){
+        }else if(time>50){
             TimeBWEnemies=0.5f;
-        }else if(_manager._dataFormat.TimeElapsed>40){
+        }else if(time>40){
             TimeBWEnemies=1;
-        }else if(_manager._dataFormat.TimeElapsed>30){
+        }else if(time>30){
             TimeBWEnemies=1.5f;
-        }else if(_manager._dataFormat.TimeElapsed>20){
+        }else if(time>20){
             TimeBWEnemies=2;
-        }else if(_manager._dataFormat.TimeElapsed>10){
+        }else if(time>10){
             TimeBWEnemies=2.5f;
         }
         
